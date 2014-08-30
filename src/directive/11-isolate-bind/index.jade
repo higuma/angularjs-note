@@ -1,0 +1,10 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
+    script(src="script.js")
+  body(ng-app="docsIsoFnBindExample")
+    div(ng-controller="Controller")
+      my-dialog(ng-hide="dialogIsHidden",on-close="hideDialog()")
+        | Check out the contents, {{name}}!

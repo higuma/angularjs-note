@@ -1,0 +1,15 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js")
+    script(src="script.js")
+  body(ng-app="expressionExample")
+    div.example2(ng-controller="EventController")
+      button(ng-click="clickMe($event)") Event
+      p
+        code $event: 
+        pre {{$event | json}}
+      p
+        code clickEvent: 
+        pre {{clickEvent | json}}

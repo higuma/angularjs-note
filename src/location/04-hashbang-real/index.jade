@@ -1,0 +1,23 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js")
+    script(src="app.js")
+  body(ng-app="hashbang-mode")
+    div(ng-controller="LocationController")
+      ul
+        li $location.absUrl() = {{$location.absUrl()}}
+        li $location.url() = {{$location.url()}}
+        li $location.protocol() = {{$location.protocol()}}
+        li $location.host() = {{$location.host()}}
+        li $location.port() = {{$location.port()}}
+        li $location.path() = {{$location.path()}}
+        li $location.search() = {{$location.search()}}
+        li $location.hash() = {{$location.hash()}}
+      div#navigation
+        a(href="#!/base/first?a=b&c=d#xyz") #!/base/first?a=b&c=d#xyz
+        | | 
+        a(href="#!/base/sec/ond?flag#hash") #!/base/sec/ond?flag#hash 
+        | | 
+        a(href="http:/www.example.com/another?search") http:/www.example.com/another?search

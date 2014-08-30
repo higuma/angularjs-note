@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular-animate.js"></script>
+  </head>
+  <body ng-app="ngAnimate">
+    <div ng-init="checked=true">
+      <p>
+        <input type="button" value="set" ng-click="myCssVar='css-class'">
+        <input type="button" value="clear" ng-click="myCssVar=''">
+      </p><br><span ng-class="myCssVar">CSS-Animated Text</span>
+    </div>
+  </body>
+</html>

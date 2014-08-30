@@ -1,0 +1,9 @@
+doctype
+html(ng-app)
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
+    script(src="script.js")
+  body(ng-controller="myController")
+   input(ng-model="foo" value="bar")
+   button(ng-click="changeFoo()") {{buttonText}}

@@ -1,0 +1,5 @@
+div.tabbable
+  ul.nav.nav-tabs
+    li(ng-repeat="pane in panes",ng-class="{active:pane.selected}")
+      a(href="",ng-click="select(pane)") {{pane.title}}
+  div.tab-content(ng-transclude="")

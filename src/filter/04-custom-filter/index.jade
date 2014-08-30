@@ -1,0 +1,16 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js")
+    script(src="script.js")
+  body(ng-app="myReverseModule")
+    div(ng-controller="Controller")
+      input(ng-model="greeting",type="text")
+      br
+      | No filter: {{greeting}}
+      br
+      | Reverse: {{greeting|reverse}}
+      br
+      | Reverse + uppercase: {{greeting|reverse:true}}
+      br

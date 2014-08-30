@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body ng-controller="myController as controller">
+    <input ng-model="controller.foo" value="controller.bar">
+    <button ng-click="controller.changeFoo()">{{controller.buttonText}}</button>
+  </body>
+</html>

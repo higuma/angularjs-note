@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app="docsBindExample">
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div ng-controller="Controller">Hello 
+      <input ng-model="name">
+      <hr><span ng-bind="name"></span><br><span ng:bind="name"></span><br><span ng_bind="name"></span><br><span data-ng-bind="name"></span><br><span x-ng-bind="name"></span><br>
+    </div>
+  </body>
+</html>

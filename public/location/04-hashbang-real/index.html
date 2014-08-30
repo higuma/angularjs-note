@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="hashbang-mode">
+    <div ng-controller="LocationController">
+      <ul>
+        <li>$location.absUrl() = {{$location.absUrl()}}</li>
+        <li>$location.url() = {{$location.url()}}</li>
+        <li>$location.protocol() = {{$location.protocol()}}</li>
+        <li>$location.host() = {{$location.host()}}</li>
+        <li>$location.port() = {{$location.port()}}</li>
+        <li>$location.path() = {{$location.path()}}</li>
+        <li>$location.search() = {{$location.search()}}</li>
+        <li>$location.hash() = {{$location.hash()}}</li>
+      </ul>
+      <div id="navigation"><a href="#!/base/first?a=b&amp;c=d#xyz">#!/base/first?a=b&c=d#xyz</a>| <a href="#!/base/sec/ond?flag#hash">#!/base/sec/ond?flag#hash </a>| <a href="http:/www.example.com/another?search">http:/www.example.com/another?search</a></div>
+    </div>
+  </body>
+</html>

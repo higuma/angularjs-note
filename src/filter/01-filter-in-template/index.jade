@@ -1,0 +1,14 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js")
+    script(src="script.js")
+  body(ng-app="FilterInTemplateModule")
+    div(ng-controller="FilterController as ctrl")
+      div
+        | All entries: 
+        span {{ctrl.array}}
+      div
+        | Entries that contain an "a": 
+        span {{ctrl.array | filter:'a'}}

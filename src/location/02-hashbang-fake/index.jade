@@ -1,0 +1,38 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js")
+    script(src="app.js")
+    script(src="fakeBrowser.js")
+    script(src="addressBar.js")
+  body(ng-app="hashbang-mode")
+    div(ng-controller="LocationController")
+      div(ng-address-bar)
+      br
+      br
+      div
+        | $location.protocol() = 
+        span(ng-bind="$location.protocol()")
+        br
+        | $location.host() = 
+        span(ng-bind="$location.host()")
+        br
+        | $location.port() = 
+        span(ng-bind="$location.port()")
+        br
+        | $location.path() = 
+        span(ng-bind="$location.path()")
+        br
+        | $location.search() = 
+        span(ng-bind="$location.search()")
+        br
+        | $location.hash() = 
+        span(ng-bind="$location.hash()")
+        br
+      div#navigation
+        a(href="http://www.example.com/base/first?a=b") /base/first?a=b 
+        | | 
+        a(href="http://www.example.com/base/sec/ond?flag#hash") sec/ond?flag#hash 
+        | | 
+        a(href="/other-base/another?search") external

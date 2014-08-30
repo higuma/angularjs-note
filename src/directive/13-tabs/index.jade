@@ -1,0 +1,15 @@
+doctype
+html
+  head
+    meta(charset="UTF-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
+    script(src="script.js")
+  body(ng-app="docsTabsExample")
+    my-tabs
+      my-pane(title="Hello")
+        h4 Hello
+        p Lorem ipsum dolor sit amet
+      my-pane(title="World")
+        h4 World
+        em Mauris elementum elementum enim at suscipit.
+        p: a(href,ng-click="i = i + 1") counter: {{i || 0}}
