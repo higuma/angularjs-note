@@ -387,7 +387,7 @@ Conceptual Overviewで用いていたディレクティブのパターンは次�
 * `ng-controller="コントローラ"`
 * `ng-model="プロパティ"`
 
-コントローラを記述するJavaScript側では$scopeサービスを通じてテンプレート側を参照する(モデルは$scopeのプロパティ)。ただしここには書かれておらず(コード例なし)、ControllersやScopesなどのトピックに記述がある。
+コントローラを記述するJavaScript側では`$scope`サービスを通じてテンプレート側を参照する(モデルは`$scope`のプロパティ)。ただしここには書かれておらず(コード例なし)、ControllersやScopesなどのトピックに記述がある。
 
 * コンストラクタ関数で`$scope`を引数にinject
 * モデルは`$scope`のプロパティ
@@ -396,7 +396,7 @@ Conceptual Overviewで用いていたディレクティブのパターンは次�
 
 <http://qiita.com/Quramy/items/e55ba394031794236fc9>
 
-だがDeveloper Guideで使われているのはほぼ$scopeの方(確認した限りではasで統一しているのはConceptual Overviewだけ)。$scopeを使う記法もマスターしないとオフィシャルドキュメントを読むことはできない。
+だがDeveloper Guideで使われているのはほぼ`$scope`の方(確認した限りではasで統一しているのはConceptual Overviewだけ)。`$scope`を使う記法もマスターしないとオフィシャルドキュメントを読むことはできない。
 
 (後で追加)なお例文の`ng-app`ディレクティブには`="名前"`がないがこれは昔の書き方。この場合コントローラはモジュールの中ではなくグローバル関数(windowのプロパティ)として定義する(旧ドキュメント[和訳]のControllersの冒頭に例あり)。
 
@@ -644,7 +644,7 @@ angular.module('myModule', [])
 * コントローラ `.controller(...)`
 * フィルタ、ディレクティブ、etc.
 
-> やはりJavaライブラリ(おそらくJava EE)を手本として作ったものだろう(まず間違いない)。しかしJavaScriptにこの方法が適しているかというと正直かなり疑問。でも文句を言う前にまずは覚えて使えるようにならないと...
+> やはりJavaライブラリ(おそらくJava EE)を手本として作ったものだろう(まず間違いない)。しかしJavaScriptに適しているかというと正直やや疑問(でも実績のある方法なので安心感はある)。文句を言う前にまずは覚えて使えるようにならないと...
 
 
 Expressions
@@ -673,7 +673,7 @@ Angular式とJavaScriptの主な相違点。
 
 Angularの式を評価するコンテクスト(スコープ)はDOM環境(window)とは異なる。ここのexampleはその説明用で、まずテンプレート側でポイントになる部分を示す。
 
-> Developer Guideの文例はほぼ全て$scopeを使う記法で書いてある。いちいちasを使う(新しい)記法に直すのは大変なのでこのあたりで$scope方式にも慣れておく。
+> Developer Guideの文例はほぼ全て`$scope`を使う記法で書いてある。いちいちasを使う(新しい)記法に直すのは大変なのでこのあたりで`$scope`方式にも慣れておく。
 
 ``` html
   <button ng-click="greet()">Greet</button>
@@ -824,7 +824,7 @@ Angularではいろいろな種類(コントローラ、サービス、フィル
 * provider($provide)はAngularがモジュール初期化時に(通常は内部で)用いるサービス
 * injector($injector)はAngularがインスタンス利用(注入)時に(通常は内部で)用いるサービス
 
-> 詳しくはProvidersのトピックを参照...と言いたいところだが、そこにあるべき基本事項の説明はない($provideと$injectorのリファレンスを直接読む方がまだ近道かも知れない)。
+> 詳しくはProvidersのトピックを参照...と言いたいところだが、そこにあるべき基本事項の説明はない(`$provide`と`$injector`のリファレンスを直接読む方がまだ近道かも知れない)。
 
 この2つが分かれば読めると思う。まとめると次の通り。
 
@@ -870,7 +870,7 @@ Angularにおける「サービス」という用語は(乱暴に?言えば)共�
 
 Angular組み込みサービスには先頭に`$`が付く。一覧は次の通り(APIリファレンスより抜粋)。
 
-* $anchorScroll - $location.hashをチェックして自動スクロール
+* $anchorScroll - `$location.hash`をチェックして自動スクロール
 * $animate - アニメーション用
 * $cacheFactory - キャッシュ機能
 * $compile - テンプレートのコンパイル(内部で使われている)
@@ -879,8 +879,8 @@ Angular組み込みサービスには先頭に`$`が付く。一覧は次の通�
 * $exceptionHandler - catchされない例外をdelegateするサービス
 * $filter - フィルタをコントローラやサービス等から利用するインターフェース
 * $http - XMLHttpRequest及びJSONPの処理
-* $httpBackend - $httpの内部で用いられている(自分で直接使うことはない)
-* $interpolate - 補間(`{{...}}`のこと)を処理する($compileの補助用)
+* $httpBackend - `$http`の内部で用いられている(自分で直接使うことは通常ない)
+* $interpolate - 補間(`{{...}}`のこと)を処理する(`$compile`の補助用)
 * $interval - `window.setInterval`を利用するためのサービス
 * $locale - 言語/国情報(ロケールid)を`'en-us'`の形式で取得
 * $location - `window.location`を利用するためのサービス
@@ -890,7 +890,7 @@ Angular組み込みサービスには先頭に`$`が付く。一覧は次の通�
 * $rootElement - Angularの基点要素(通常はng-appを設定した要素)
 * $rootScope - ルートスコープ(入れ子になっている場合は一番外側の親)
 * $sce - Strict Contextual Escaping(文字のエスケープ機能)
-* $sceDelegate - $sceの内部で使われている
+* $sceDelegate - `$sce`の内部で使われている
 * $templateCache - テンプレートのキャッシュ機能(Angularの内部で使用)
 * $timeout - `window.setTimeout`を利用するためのサービス
 * $window - DOMの`window`オブジェクトの参照
@@ -948,7 +948,7 @@ Angularのコントローラは`ng-controller`ディレクティブにより作�
 
 ### Setting up the initial state of a $scope object / Adding Behavior to a Scope Object
 
-コンストラクタ関数の中ではビューとやり取りするデータを$scopeのプロパティとして定義し、その初期値を設定する(これがコントロール要素から見たモデル)。同様に操作メソッドも$scopeのプロパティに設定する。
+コンストラクタ関数の中ではビューとやり取りするデータを`$scope`のプロパティとして定義し、その初期値を設定する(これがコントロール要素から見たモデル)。同様に操作メソッドも`$scope`のプロパティに設定する。
 
 ### Using Controllers Correctly
 
@@ -985,9 +985,9 @@ Angularのコントローラは`ng-controller`ディレクティブにより作�
     * その内側は次の通り
         * まず$rootScopeを手動生成し...
         * コントローラも$controllerで手動生成
-        * $scopeとして手動生成した$rootScopeインスタンスを注入
+        * $scopeとして手動生成した`$rootScope`インスタンスを注入
     * `it`がテスト項目(これもRSpecと同じ)
-        * 内部の$scopeは(通常と異なり)テスト用$rootScopeインスタンス
+        * 内部の$scopeは(通常と異なり)テスト用`$rootScope`インスタンス
 
 > ポイントはスコープやコントローラをモックに差し替えるというその一点。angular.mock.injectをこの用途で駆使するため、Angularはグローバル関数の(window.)injectをそのショートカットとして登録している。
 
@@ -1060,7 +1060,7 @@ exampleで行っている処理を模式化すると次の通り(矢印の方向
 exampleはポイントだけ確認する。一見するとスコープのネスティングは使っていないように見えるがそうではなく、ng-repeatにより作業用子スコープが作られている。またルートスコープの説明用に一つ仕込みを入れてある。
 
 * まずコントローラ側の方が簡単なのでそちらから確認する
-    * GreetControllerでは$scopeのほかに$rootScopeもinjectしていることに注意
+    * GreetControllerでは`$scope`だけでなく`$rootScope`もinjectしていることに注意
         * そこで$rootScope.departmentを仕込んでおく(`'Angular'`)
     * ListControllerでは.namesにメンバーの一覧を設定しているだけ
 * テンプレート側のポイントは最後の`<li ng-repeat="name in names">`の部分
@@ -1087,7 +1087,7 @@ exampleはポイントだけ確認する。一見するとスコープのネス�
 
 <https://docs.angularjs.org/api/ng/type/$rootScope.Scope>
 
-> どうして$scopeなどという項目がなく$rootScope.Scopeに書かれているかというと、(子)スコープは親を動的に継承して生成しているため。JavaScriptにはクラスがないので便宜的にルートスコープの場所に記述している(でもやはり最初は探すのに苦労する)。
+> どうして$scopeなどという項目がなく`$rootScope.Scope`に書かれているかというと、(子)スコープは親を動的に継承して生成しているため。JavaScriptにはクラスがないので便宜的にルートスコープの場所に記述している(でもやはり最初は探すのに苦労する)。
 
 まとめると次の通り。
 
@@ -1106,9 +1106,9 @@ exampleはポイントだけ確認する。一見するとスコープのネス�
     * コントローラを3重ネストで定義(対応するスコープも3重になる)
         * ng-repeatも2つ使っているので正確には5重スコープ(ただし本質的ではない)
     * カウンタ表示は全てのレベルに付いている
-    * イベント発生ボタン($emit/$broadcast)は真ん中のレベルにだけ付いている
-        * $emitを押すと自分自身とその親側のcountを増やす
-        * $broadcastを押すと自分自身とその子孫のcountを増やす
+    * イベント発生ボタン(`$emit`/`$broadcast`)は真ん中のレベルにだけ付いている
+        * `$emit`を押すと自分自身とその親側のcountを増やす
+        * `$broadcast`を押すと自分自身とその子孫のcountを増やす
 
 #### Scope Life Cycle / Integration with the browser event loop
 
@@ -1455,7 +1455,7 @@ SVGのcircle要素は円を描画する(cx, cy, rの各属性はそれぞれ中�
 > 
 > <https://docs.angularjs.org/api/ng/function/angular.element>
 
-Angularは意図的にDOMを直接操作する作りにはなっておらず、windowやdocumentを参照するにはサービスの$windowや$documentをinjectする。また使用頻度の高いsetTimeoutやsetIntervalには専用の$timeoutと$intervalを用意している。
+Angularは意図的にDOMを直接操作する作りにはなっておらず、windowやdocumentを参照するにはサービスの`$window`や`$document`をinjectする。また使用頻度の高いsetTimeoutやsetIntervalには専用の`$timeout`と`$interval`を用意している。
 
 > 実はwindowを直接使っても動く。しかし「それだとテストの時モックに差し替えできないよね」というのがAngularの設計方針。またwindowやdocumentそのものではなくjqLiteラッパオブジェクトなのでいろいろと便利。
 
@@ -1489,10 +1489,10 @@ Angularは意図的にDOMを直接操作する作りにはなっておらず、w
 
 これで全体の流れは分かるが、詳しくはAPIリファレンスを読む必要があるので場所だけ確認する(もういちいち書くのはやめ)。
 
-* $interval <https://docs.angularjs.org/api/ng/service/$interval>
-* dateフィルタ <https://docs.angularjs.org/api/ng/filter/date>
-* element <https://docs.angularjs.org/api/ng/function/angular.element>
-* .$watchと$destroy <https://docs.angularjs.org/api/ng/type/$rootScope.Scope>
+* `$interval` <https://docs.angularjs.org/api/ng/service/$interval>
+* `date`フィルタ <https://docs.angularjs.org/api/ng/filter/date>
+* `element` <https://docs.angularjs.org/api/ng/function/angular.element>
+* `.$watch`と`$destroy` <https://docs.angularjs.org/api/ng/type/$rootScope.Scope>
 
 #### Creating a Directive that Wraps Other Elements
 
@@ -1609,7 +1609,7 @@ Providers
 
 <https://docs.angularjs.org/api/ng/type/angular.Module>
 
-> $provideをアプリケーションコードで使うことはあまりない(DIのアノテーション通りに書けば自動的に処理される)。$provideはテスト用モックを作る場合に必要で、ModulesとServicesのトピックの最後に$provideを使ったユニットテストの文例がある。
+> `$provide`をアプリケーションコードで使うことはあまりない(DIのアノテーション通りに書けば自動的に処理される)。`$provide`はテスト用モックを作る場合に必要で、ModulesとServicesのトピックの最後に`$provide`を使ったユニットテストの文例がある。
 > 
 > これ以上詳しく読んでも得るものは少ないと思う(それにどうしてもJavaの論理でJavaScriptを語っている感じがしてしまう)。先に進んでさっさと終わらせよう。
 
@@ -1692,9 +1692,9 @@ APIを要約する。
 
 > 事前説明は以上(ここからやっとAngularの$locationの説明)。本文はほとんど読んでいない(横目で見ながらAPIリファレンスとソースを読んで書いた)。
 
-$locationは基本的にはwindow.locationの機能を提供するAngularのサービスだが、hashbangやhistory APIを組み込んでWebアプリケーション状態をパスで表現する機能を統合している。
+`$location`は基本的にはwindow.locationの機能を提供するAngularのサービスだが、hashbangやhistory APIを組み込んでWebアプリケーション状態をパスで表現する機能を統合している。
 
-$locationにはコンフィギュレーション用の$locationProviderサービスがあり、それを使って設定する。
+`$location`にはコンフィギュレーション用の`$locationProvider`サービスがあり、それを使って設定する。
 
 ``` javascript
 angular.module('アプリケーションモジュール名', [...])
@@ -1738,11 +1738,11 @@ angular.module('アプリケーションモジュール名', [...])
 
 ここにはexampleが2つあるが(HTML5/hashbang各モードのデモ)、addressBar.jsとfakeBrowser.jsに使われている$browserはAPIリファレンスのどこにも記述はない。これはAngularの非公開サービスで、コメント付きソースを読むと存在を確認できる。
 
-$browserは「抽象(模擬)ブラウザ」のようなものらしい。コメントには"used only by scenario runner"と記述があるが(これだけならテスト専用)、現状では$locationPoviderの内部実装にも用いられている(実際にinjectされている)。
+`$browser`は「抽象(模擬)ブラウザ」のようなものらしい。コメントには"used only by scenario runner"と記述があるが(これだけならテスト専用)、現状では`$locationPovider`の内部実装にも用いられている(実際にinjectされている)。
 
-なおscenario runnerとは旧式テストツールで、現在はProtractorを用いる(E2E Testing参照)。つまり$browserは非公開なだけでなく、いつか(多分1.4あたりで)廃止されることが予想されるので詳しい調査はしない。
+なおscenario runnerとは旧式テストツールで、現在はProtractorを用いる(E2E Testing参照)。つまり$browserは非公開なだけでなく、将来のバージョンで廃止されることが予想されるので詳しい調査はしない。
 
-> おかげでかなりソースを読むはめになった。他にもうひとつ$snifferという非公開サービスがあり、こちらはブラウザ判定(browser sniffing)用でソースも短い。特に難しくないので読めば使用法もだいたい分かる。
+> おかげでかなりソースを読むはめになった。他にもうひとつ`$sniffer`という非公開サービスがあり、こちらはブラウザ判定(browser sniffing)用でソースも短い。特に難しくないので読めば使用法もだいたい分かる。
 
 しかしexampleはモックブラウザの環境上に擬似アドレスバーがあるような状態なので、これでは逆に自分のような初心者には動作の理解の妨げにしかなっていない。そこで本物のブラウザのアドレスバーとやりとりするように自分で作り直した。
 
@@ -1967,7 +1967,7 @@ mockTest(window, 'XHR', function MockXHR() {}, function() {
 
 高級言語を使っていればこんなのは当然(これをわざわざ「注入」と表現する感性を理解できないだけ)。何だかもう馬鹿馬鹿しくなってきたのでこの辺でもうやめる。
 
-> Angularの設計自体は批判しない。(よい意味で)十分に枯れているJavaの設計方針を手本にしただけだと思う(実際悪くない)。しかしその「宣伝文」(ここの文章のこと)があまりに的外れなのでちょっと頭に来た(それだけのこと)。
+> Angularの設計自体は批判しない。よい意味で実績があり(十分に枯れている)Javaの設計方針を手本にしただけだと思う。しかしその「宣伝文」(ここの文章のこと)があまりに的外れなのでちょっと頭に来た(それだけのこと)。
 
 中間は全部飛ばして、後半の残り1/3くらいになってようやくJasmineを使う文例が出てくるのでそこだけ確認する。
 
@@ -1980,7 +1980,7 @@ mockTest(window, 'XHR', function MockXHR() {}, function() {
 * Jasminテスト一式(suite)は`describe('テストの説明', function() {テスト一式})`
 * `beforeEach`はJasmineテストの各項目実行前の共通初期化
 * `inject`は`angular.mock.inject`のショートカット([APIリファレンス](https://docs.angularjs.org/api/ngMock/function/angular.mock.inject)を参照)
-    * これを使って$compileと$rootScopeの両サービスをモックに差し替える
+    * これを使って`$compile`と`$rootScope`の両サービスをモックに差し替える
 * Jasmineテストの項目(spec)は`it('テスト項目の説明', function() {テスト内容})`
 * `expect(ブール値)`はJasmineのアサーション記述方法
 
